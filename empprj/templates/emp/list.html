@@ -3,7 +3,7 @@
 {% block content %}
    <form action="" method="POST">
        {% csrf_token %}
-       <a href="" class="btn btn-primary mb-5">
+       <a href="{% url 'create' %}" class="btn btn-primary mb-5">
             Add New Record
        </a>
        <div class="container">
