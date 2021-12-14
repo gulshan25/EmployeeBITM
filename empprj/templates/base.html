@@ -69,11 +69,14 @@
 
     <script>
         $(function(){
-
+            sertimeout(function(){
+                $('.alert').hide();
+            },2000);
             $("#id_dob").datepicker({
                 format:"yyyy-mm-dd",
                 autoclose: true,
                 todayHightlight: true,
+                endDate:'-0d'
             });
             $("#id_photo").change(function() {
                 readURL(this);
