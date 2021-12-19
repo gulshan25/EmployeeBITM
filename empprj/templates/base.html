@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    
+
     {% include 'mdbcss.html' %}
 
     {% block stylesheet %}
@@ -63,7 +63,7 @@
             $("#id_photo").change(function() {
                 readURL(this);
             })
-
+            // DOM - Document Object Model
             $('#emptable').DataTable({
                 "dom":'f<t>ip', // showing details in paginator list page
                 //"dom": '<"top"f>rt<"bottom"p><"clear">', // Positions table elements// showing not any details in paginator list page
