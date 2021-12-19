@@ -6,22 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <!-- Font Awesome -->
-    <link
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
-    rel="stylesheet"
-    />
-    <!-- Google Fonts -->
-    <link
-    href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
-    rel="stylesheet"
-    />
-    <!-- MDB -->
-    <link
-    href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.10.1/mdb.min.css"
-    rel="stylesheet"
-    />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/css/bootstrap-datepicker.min.css">
+    
+    {% include 'mdbcss.html' %}
+
     {% block stylesheet %}
         
     {% endblock stylesheet %}
@@ -56,20 +43,15 @@
         {% include 'includes/footer.html' %}
     </main>
 
-    <!-- MDB -->
-    <script
-    type="text/javascript"
-    src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.10.1/mdb.min.js"
-    ></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/js/bootstrap-datepicker.min.js"></script>
+    {% include 'mdbjs.html' %}
+    
     {% block javascript %}
         
     {% endblock javascript %}
 
     <script>
         $(function(){
-            sertimeout(function(){
+            setTimeout(function(){
                 $('.alert').hide();
             },2000);
             $("#id_dob").datepicker({
@@ -81,6 +63,16 @@
             $("#id_photo").change(function() {
                 readURL(this);
             })
+
+            $('#emptable').DataTable({
+                "dom":'f<t>ip', // showing details in paginator list page
+                //"dom": '<"top"f>rt<"bottom"p><"clear">', // Positions table elements// showing not any details in paginator list page
+                "lengthMenu": [
+                [10, 25, 50, -1],
+                [10, 25, 50, "All"]
+                ]
+
+            });
         });
     
         function readURL(input) {

@@ -23,8 +23,9 @@
             Add New Record
        </a>
        <div class="container">
-           <table class="mdl-data-table" style="width:100%" id = "emptable" data-page-length='5'>
-               <tr class="table-dark">
+           <table class="mdl-data-table" style="width:100%" id="emptable" data-page-length ="5">
+            <thead  class="table-dark" >  
+                <tr>
                    <td>Employee ID</td>
                    <td>Employee Name</td>
                    <td>Email Address</td>
@@ -33,7 +34,8 @@
                    <td>Photo</td>
                    <td>...</td>
                </tr>
-               
+            </thead>
+            <tbody>    
                {% for emp in object_list %}
                <tr>
                 <td>{{ emp.id }}</td>
@@ -46,12 +48,13 @@
                 </td>
                 <td>
                     <a href="{% url 'detail' emp.id %}"><i class="fa fa-eye fa-2x"></i></a>
-                    <a href=""><i class="fa fa-edit fa-2x"></i></a>
+                    <a href="{% url 'edit' emp.id %} "><i class="fa fa-edit fa-2x"></i></a>
                     <a href=""><i class="fa fa-trash fa-2x"></i></a>
                 </td>
 
             </tr>
                {% endfor %}
+            </tbody>
                    
                
            </table>

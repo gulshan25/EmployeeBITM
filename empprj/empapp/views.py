@@ -38,4 +38,29 @@ class EmployeeCreateView(CreateView):
     
 class EmployeeDetailView(DetailView):
     queryset = Employee.objects.all()
-    template_name = 'emp/details.html'   
+    template_name = 'emp/details.html' 
+    
+class EmployeeUpdateView(UpdateView):
+    model = Employee
+    template_name = 'emp/empform.html'
+    form_class = EmployeeForm
+    
+    def get_success_url(self):
+        messages.add_message(self.request, messages.INFO,'Employee Has Been Updated')
+        return reverse('list')  
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title'] = 'Edit Employee'
+        context["heading" ] = 'Update Employee'
+        return context  
+    
+class EmployeeDeleteView(DeleteView):
+    model = Employee
+    template_name = 'emp/delete.html'
+    form_class = EmployeeForm 
+    
+    def get_success_url(self):
+        messages.add_message(self.request, messages.INFO,'Employee Has Been Deleted')
+        return reverse('list') 
+    
