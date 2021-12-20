@@ -78,6 +78,7 @@
         function readURL(input) {
             var filepath = input.value;
             var allowed_extensions = /(\.jpg|\.png|\.gif)$/i;
+            //var allowed_extensions = /(\.doc|\.pdf|\.txt)$/i;
             if (!allowed_extensions.exec(filepath)) {
                 alert('Invalid file type !!!');
                 input.value = '';
@@ -95,6 +96,10 @@
                 }
             }
         }
+
+
+
+        
             
     </script>
         

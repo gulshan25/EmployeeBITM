@@ -7,6 +7,8 @@ from django.urls import reverse
 
 # Create your views here.
 
+# class based view
+
 class HomeView(TemplateView):
     template_name = 'emp/home.html'
     
@@ -63,4 +65,7 @@ class EmployeeDeleteView(DeleteView):
     def get_success_url(self):
         messages.add_message(self.request, messages.INFO,'Employee Has Been Deleted')
         return reverse('list') 
+    
+    
+    
     
