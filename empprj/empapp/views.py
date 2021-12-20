@@ -7,7 +7,7 @@ from django.urls import reverse
 
 # Create your views here.
 
-# class based view
+# generic class based view
 
 class HomeView(TemplateView):
     template_name = 'emp/home.html'

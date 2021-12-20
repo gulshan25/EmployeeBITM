@@ -2,7 +2,7 @@ from django.urls import path
 from empapp import views
 
 
-# class based view
+# generic class based view
 
 urlpatterns = [
     
